@@ -1,5 +1,7 @@
 package mca;
 
+import java.sql.* ; 
+import java.math.* ;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -113,9 +115,11 @@ public class Database {
 		String user="root";
 		String db="e-lab";
 		String pass="root";
-		String driver="com.mysql.jdbc.Driver";
+		String driver="mysql";
 		Class.forName(driver);
-		Connection conn=DriverManager.getConnection(url+db,user,pass);
+		System.out.print("forName done");
+		Connection conn=DriverManager.getConnection(url,user,pass);
+		System.out.print("conn done");
 		boolean i=false;
 		i=Login(conn,set);
 		  return i;

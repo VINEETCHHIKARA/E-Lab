@@ -14,7 +14,7 @@
 			</h1>
 </div>
 <div style="margin-left:25%;padding:1px 16px;">
-<form name="login" action="RegisterDP" method="post">
+<form name="login" action="Forgot" method="post">
 <input type="hidden" name="pagename" value="Forgot"/>
 <table >
 <tr><td>E-mail</td>
@@ -22,7 +22,8 @@
 <tr><td>Contact Number</td>
 <td><input type="text" name="number" required></td></tr>
 <tr><td><input type="submit" value="Submit"></td></tr>
-<tr><td style="color:red">${message}</td></tr>
+<tr><td style="color:red">${error}</td></tr>
+<tr><td style="color:blue"><a href="Login.jsp">Login</a><td style="color:blue"><a href="Login.jsp">   Sign Up</a></td></tr>
 </table>
 </form>
 </div>

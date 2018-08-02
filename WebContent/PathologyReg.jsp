@@ -18,7 +18,7 @@
 </div>
 <div style="margin-left:25%;padding:1px 16px;">
 
-<form name="registration" action="RegisterDP" method="post">
+<form name="registration" action="Pathology" method="post">
 <input type="hidden" name="pagename" value="PathologyReg">
 <table>
 <tr>
@@ -75,19 +75,19 @@ Test 7<input type="text" name="test7"><br/>
 </tr>
 <tr>
 <td>Contact No.:</td>
-<td><input type="text" name="phone" required></td>
+<td><input type="text" name="phone" pattern="[0-9]{10}" placeholder="<10 digit number>" required></td>
 </tr>
 <tr>
 <td>Email:</td>
-<td><input type="text" name="email"required></td>
+<td><input type="email" name="email" required></td>
 </tr>
 <tr>
         <td>
             Password:
         </td>
         <td>
-            <input type="password" id="txtPassword" name="password" required/>
-        </td>
+            <input type="password" id="txtPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" required/></br>
+            </td>
     </tr>
     <tr>
         <td>
@@ -97,6 +97,8 @@ Test 7<input type="text" name="test7"><br/>
             <input type="password" id="txtConfirmPassword" required/>
         </td>
     </tr>
+    <tr><td></td><td><i>Note:- Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters </i>
+        </td></tr>
     <tr>
         <td>
         </td>

@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import mca.Database;
-import mca.GetSet;
+import admin.GetSet;
 
 /**
  * Servlet implementation class Feedback
@@ -42,25 +41,31 @@ public class Feedback extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		boolean status;
-			String aname=request.getParameter("Name");
-			String email=request.getParameter("Email");
-			String message=request.getParameter("Message");
-			GetSet v=new GetSet();
-			v.setAname(aname);
-			v.setEmail(email);
-			v.setMessage(message);
-			Database db=new Database();
+		String aname=request.getParameter("Name");
+		String email=request.getParameter("Email");
+		String message=request.getParameter("Message");
+		GetSet v=new GetSet();
+		v.setAname(aname);
+		v.setEmail(email);
+		v.setMessage(message);
+		FeedbackData db=new FeedbackData();
+		
 			try {
 				status=db.getConnection("FeedBack", v);
 				if(status) {
 					HttpSession session=request.getSession();
 					session.setAttribute("status", "Register error");
 				}
-			} catch (ClassNotFoundException | SQLException e) {
+			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			};
-			response.sendRedirect("index.html");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
+		response.sendRedirect("index.html");
 	}
 
 }

@@ -1,0 +1,58 @@
+<form action="Admin" method="post">
+							<input type="hidden" name="pagename" value="AddAdmin">
+							<table style="border:black solid; margin-left:100px; margin-top:100px;">
+							<tr>
+							<td>Name</td>
+							<td><input type="text" name="name" required></td>
+							</tr>
+							<tr>
+							<td>gender</td>
+							<td><input type="radio" name="gender" id="male" value="male" required><label for="male">Male</label><input type="radio" name="gender" id="female" value="female" required><label for="male">Female</label></td>
+							</tr>
+							<tr>
+							<td>Age</td>
+							<td><input type="date" name="age" required></td>
+							</tr>
+							<tr>
+							<td>Email</td>
+							<td><input type="email" name="email" required></td>
+							</tr>
+							<tr>
+							<td>Phone No.</td>
+							<td><input type="text" name="phone" pattern="[0-9]{10}" placeholder="<10 digit number>" required></td>
+							</tr>
+							<tr>
+							<td>Address</td>
+							<td><input type="text" name="address" required></td>
+							</tr>
+							<tr>
+							<td>Password</td>
+							<td><input type="password" id="txtPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}" name="pass" required></td>
+							</tr>
+							<tr>
+							<td>Confirm Password:</td>
+							<td><input type="password" id="txtConfirmPassword" /></td>
+							</tr>
+							<tr><td></td><td><i>Note:- Password must contain at least one number and one </br>uppercase and lowercase letter, and at least 8 or more characters </i>
+        					</td></tr>
+							<tr>
+							<td style="color:red"></td>
+							</tr>
+							<tr>
+							<td><input type="submit" id="btnSubmit" value="Submit" /></td>
+							</tr>
+							</table>
+							<script type="text/javascript">
+    							$(function () {
+        							$("#btnSubmit").click(function () {
+            						var password = $("#txtPassword").val();
+            						var confirmPassword = $("#txtConfirmPassword").val();
+            						if (password != confirmPassword) {
+            						    alert("Passwords do not match.");
+            						    return false;
+            						}
+            						return true;
+        							});
+    							});
+</script>
+							</form>
